@@ -1,0 +1,15 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Lista de Itens
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item style="cursor: pointer" *ngFor="let item of listaItens" (click)="mostrarMensagem(item)">
+      {{ item }}
+    </ion-item>
+  </ion-list>
+</ion-content>
