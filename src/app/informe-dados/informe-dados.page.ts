@@ -40,7 +40,7 @@ export class InformeDadosPage {
           text: 'Confirmar',
           handler: () => {
             // Navegar de volta à página principal após enviar dados
-            this.navCtrl.navigateBack('/home');
+            this.navCtrl.navigateBack('/tabs/home');
           },
         },
       ],

@@ -22,6 +22,11 @@ export const routes: Routes = [
           import('../login/login.page').then((m) => m.LoginPage),
       },
       {
+        path: 'badges',
+        loadComponent: () =>
+          import('../badges/badges.page').then((m) => m.BadgesPage),
+      },
+      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full',
