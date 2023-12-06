@@ -7,7 +7,7 @@ import {
   IonItem,
   IonLabel,
   IonInput,
-  IonButton, AlertController, NavController
+  IonButton, AlertController, NavController, IonBackButton, IonButtons
 } from '@ionic/angular/standalone';
 import {FormsModule} from "@angular/forms";
 
@@ -16,7 +16,7 @@ import {FormsModule} from "@angular/forms";
   templateUrl: 'informe-dados.page.html',
   styleUrls: ['informe-dados.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonItem, IonLabel, IonInput, FormsModule, IonButton]
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonItem, IonLabel, IonInput, FormsModule, IonButton, IonBackButton, IonButtons]
 })
 export class InformeDadosPage {
   email: string = '';

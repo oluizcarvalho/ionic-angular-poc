@@ -1,43 +1,50 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {
-  IonHeader,
-  IonToolbar,
-  IonTitle,
+  AlertController,
+  IonBackButton,
+  IonButton,
+  IonButtons,
   IonContent,
+  IonHeader,
+  IonInput,
   IonItem,
   IonLabel,
-  IonInput,
-  IonButton, AlertController
+  IonTitle,
+  IonToolbar
 } from '@ionic/angular/standalone';
-import { FormsModule } from "@angular/forms";
+import {FormsModule} from "@angular/forms";
 import {Router} from "@angular/router";
+import {DadosService} from "../services/dados.service";
 
 @Component({
   selector: 'app-login',
   templateUrl: 'login.page.html',
   styleUrls: ['login.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonItem, IonLabel, IonInput, FormsModule, IonButton],
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonItem, IonLabel, IonInput, FormsModule, IonButton, IonButtons, IonBackButton],
 })
 export class LoginPage {
   usuario: string = '';
   senha: string = '';
+  users: Array<{
+    id: number, nome: string, login: string, senha: string, email:
+      string, img: string, icon: string
+  }> = [];
 
   constructor(
     private router: Router,
-    private alertController: AlertController
-  ) {}
+    private alertController: AlertController,
+    private dadosServ: DadosService
+  ) {
+    this.users = this.dadosServ.users;
+  }
 
   realizarLogin() {
-    // Simule uma validação simples (usuário e senha hardcoded)
-    const usuarioValido = 'usuario';
-    const senhaValida = 'senha';
+    const index = this.users.findIndex(user => user.login === this.usuario)
 
-    if (this.usuario === usuarioValido && this.senha === senhaValida) {
-      // Login bem-sucedido, navegar para a página bem-vindo
-      this.router.navigate(['/bem-vindo'], { queryParams: { usuario: this.usuario } });
+    if (index >= 0 && this.usuario === this.users[index].login && this.senha === this.users[index].senha) {
+      this.router.navigate(['/bem-vindo'], {queryParams: {usuario: this.usuario}});
     } else {
-      // Exibir alerta se o login falhar
       this.exibirAlerta('Erro de Login', 'Usuário ou senha inválidos');
     }
   }

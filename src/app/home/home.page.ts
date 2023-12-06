@@ -6,7 +6,7 @@ import {
   IonContent,
   IonList,
   IonItem,
-  ToastController
+  ToastController, IonButtons, IonBackButton, IonMenuButton
 } from '@ionic/angular/standalone';
 import {NgForOf} from "@angular/common";
 
@@ -15,7 +15,7 @@ import {NgForOf} from "@angular/common";
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, NgForOf],
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, NgForOf, IonButtons, IonBackButton, IonMenuButton],
 })
 export class HomePage {
   listaItens: string[] = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5'];
