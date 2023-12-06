@@ -9,16 +9,14 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-item>
-    <ion-label position="floating">Email</ion-label>
-    <ion-input [(ngModel)]="email" type="email"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label position="floating">Telefone</ion-label>
-    <ion-input [(ngModel)]="telefone" type="tel"></ion-input>
-  </ion-item>
-
-  <ion-button class="ion-float-end ion-padding" (click)="enviarDados()">Enviar</ion-button>
+<ion-content class="ion-padding" [fullscreen]="true">
+  <ion-button id="present-alert">Informe seus dados</ion-button>
+  <ion-alert
+    trigger="present-alert"
+    header="Adicione seus dados"
+    [buttons]="alertButtons"
+    [inputs]="alertInputs"
+  ></ion-alert>
+  <p *ngIf="emailText"><b>Email: </b> {{emailText}}</p>
+  <p *ngIf="telefoneText"><b>Telefone: </b> {{telefoneText}}</p>
 </ion-content>

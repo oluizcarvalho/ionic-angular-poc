@@ -43,7 +43,7 @@ export class LoginPage {
     const index = this.users.findIndex(user => user.login === this.usuario)
 
     if (index >= 0 && this.usuario === this.users[index].login && this.senha === this.users[index].senha) {
-      this.router.navigate(['/bem-vindo'], {queryParams: {usuario: this.usuario}});
+      this.router.navigate(['/bem-vindo'], {queryParams: {usuario: this.users[index].nome}});
     } else {
       this.exibirAlerta('Erro de Login', 'Usuário ou senha inválidos');
     }
